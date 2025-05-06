@@ -1,0 +1,20 @@
+import cmath
+
+a = float(input("a: "))
+b = float(input("b: "))
+c = float(input("c: "))
+discriminant = b**2 - 4*a*c
+
+if discriminant > 0:
+	r1= (-b + discriminant**0.5) / (2 * a)
+	r2 = (-b - discriminant**0.5) / (2 *a)
+	print( f"The roots are: {r1:.2f} and {r2:.2f}")
+elif discriminant == 0:
+	root = -b / (2 *a)
+	print(f"The root is: {root:.2f}")
+else:
+	r1 = (-b + cmath.sqrt(discriminant)) / (2 *a)
+	r2 = (-b - cmath.sqrt(discriminant)) / (2*a)
+	real_part = "-0.00" if b ==0 else f"{-b / (2 *a):.2f}"
+
+	print(f"The roots are: {real_part}+{abs(r1.imag):.2f}j and {real_part}-{abs(r1.imag):.2f}j")
