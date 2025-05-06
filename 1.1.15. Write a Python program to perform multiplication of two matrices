@@ -1,0 +1,36 @@
+def matmult(A, B):
+    # Check for valid dimensions: A cols must equal B rows
+    if len(A[0]) != len(B):
+        print("Cannot multiply the two matrices. Incorrect dimensions.")
+        return None
+ 
+    result = []
+    for i in range(len(A)):
+        row = []
+        for j in range(len(B[0])):
+            sum = 0
+            for k in range(len(A[0])):
+                sum += A[i][k] * B[k][j]
+            row.append(sum)
+        result.append(row)
+    return result
+""" End of Function: matmult """
+
+def readmatrix(name=''):
+    print(f"Enter values for {name}")
+    m = int(input("Number of rows, m = "))
+    n = int(input("Number of columns, n = "))
+    matrix = []
+    for i in range(m):
+        row = []
+        for j in range(n):
+            print(f"Entry in row: {i + 1} column: {j + 1}")
+            val = int(input())
+            row.append(val)
+        matrix.append(row)
+    return matrix
+""" End of Function: readmatrix """
+
+# Main program
+matrixa = readmatrix('matrix - A')
+matrixb = readmatrix('matrix - B')
